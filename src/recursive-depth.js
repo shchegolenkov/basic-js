@@ -19,12 +19,15 @@ class DepthCalculator {
 
   calculateDepth(arr) {
     this.lenght = 0;
-    if (Array.isArray(arr)) this.lenght++;
-    arr.forEach((el) => {
-      if (Array.isArray(el)) {
-        this.calculateDepth(el);
-      }
-    });
+    if (Array.isArray(arr)) {
+      arr.forEach((el) => {
+        this.lenght = Math.max(this.lenght, this.calculateDepth(el));
+        // if (Array.isArray(el)) {
+        //   this.calculateDepth(el);
+        // }
+      });
+      this.lenght++;
+    }
     return this.lenght;
   }
 }
