@@ -11,15 +11,18 @@ const { NotImplementedError } = require("../extensions/index.js");
  * For n = 152, the output should be 52
  *
  */
+
 function deleteDigit(n) {
   let arr = String(n).split("");
   let maxArr = [];
   for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      maxArr.push(+(arr[i] + arr[j]));
-    }
+    maxArr.push(
+      +arr
+        .slice(0, i)
+        .concat(arr.slice(i + 1))
+        .join("")
+    );
   }
-  console.log(maxArr);
   return Math.max(...maxArr);
 }
 
