@@ -17,11 +17,9 @@ function getSumOfDigits(n = 0) {
   n.toString()
     .split("")
     .forEach((digit) => (sum += +digit));
-  console.log("sum before compare", sum);
   if (sum.toString().length === 1) {
     return sum;
   } else {
-    console.log("sum", sum);
     return getSumOfDigits(sum);
   }
 }
